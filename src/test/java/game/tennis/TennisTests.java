@@ -41,7 +41,7 @@ public class TennisTests {
     }
 
     @Test
-    @DisplayName("Player 1 have winner points and winner player will be Player 1")
+    @DisplayName("Player 1 have winning points and winner player will be Player 1")
     public void playTest_player1HasWinningPoints_player1ShouldBeWinnerPlayer() {
 
         Mockito.when(helperUtils.generateRandomPoint()).thenReturn(12);
@@ -56,23 +56,23 @@ public class TennisTests {
 
 
     @Test
-    @DisplayName("Player 2 have winner points and winner player will be Player 2")
+    @DisplayName("Player 2 have winning points and winner player will be Player 2")
     public void playTest_player2HasWinningPoints_player2ShouldBeWinnerPlayer() {
 
-        Mockito.when(helperUtils.generateRandomPoint()).thenReturn(11);
+        Mockito.when(helperUtils.generateRandomPoint()).thenReturn(13);
         tennis.play();
 
         Assertions.assertNotNull(tennis.getScoreBoard().getWinner());
         Assertions.assertEquals(tennis.getScoreBoard().getPlayer2(), tennis.getScoreBoard().getWinner());
         Assertions.assertEquals("Player 2", tennis.getScoreBoard().getWinner().getName());
-        Assertions.assertEquals(11, tennis.getScoreBoard().getWinner().getScore());
+        Assertions.assertEquals(13, tennis.getScoreBoard().getWinner().getScore());
 
     }
 
 
 
     @Test
-    @DisplayName("Tie at 10 points, Player 1 should we winner as new points will be 2")
+    @DisplayName("Tie at 10 points, Player 1 should we winner as tie breaking points will be 2")
     public void playTest_tieAt10Points_player1ShouldBeWinnerPlayer() {
 
         this.tennis.getScoreBoard().getPlayer1().setScore(10);
@@ -92,7 +92,7 @@ public class TennisTests {
 
 
     @Test
-    @DisplayName("Tie at 10 points, Player 2 should we winner as new points will be 3")
+    @DisplayName("Tie at 10 points, Player 2 should we winner as tie breaking points points will be 3")
     public void playTest_tieAt10Points_player2ShouldBeWinnerPlayer() {
 
         this.tennis.getScoreBoard().getPlayer1().setScore(10);
