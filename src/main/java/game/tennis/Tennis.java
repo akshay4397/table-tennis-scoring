@@ -65,8 +65,14 @@ public class Tennis {
 
         updateTieStatus();
 
-        if (!this.isTie && this.scoreBoard.getPlayer1().getScore() >= WINNING_POINTS_1) this.scoreBoard.setWinner(this.scoreBoard.getPlayer1());
-        if (!this.isTie && this.scoreBoard.getPlayer2().getScore() >= WINNING_POINTS_1) this.scoreBoard.setWinner(this.scoreBoard.getPlayer2());
+        if (!this.isTie && this.scoreBoard.getPlayer1().getScore() >= WINNING_POINTS_1) {
+            this.scoreBoard.setWinner(this.scoreBoard.getPlayer1());
+            return;
+        }
+
+        if (!this.isTie && this.scoreBoard.getPlayer2().getScore() >= WINNING_POINTS_1) {
+            this.scoreBoard.setWinner(this.scoreBoard.getPlayer2());
+        }
 
     }
 
