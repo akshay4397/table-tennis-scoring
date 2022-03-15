@@ -33,8 +33,8 @@ public class Tennis {
 
         while (Objects.isNull(this.scoreBoard.getWinner())) {
 
-            updateCurrentPlayer();
             int points = helperUtils.generateRandomPoint();
+            updateCurrentPlayer();
             settleResult(points);
 
         }
